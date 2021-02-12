@@ -15,6 +15,58 @@
     </record>
     -->
 
+    <record model="ir.ui.view" id="proyectos_proyectos_tree">
+      <field name="name">proyectos.proyectos.tree</field>
+      <field name="model">proyectos.proyectos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="language"/>
+          <field name="date"/>
+          <field name="description" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="proyectos_proyectos_form">
+      <field name="name">proyectos.proyectos.form</field>
+      <field name="model">proyectos.proyectos</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="name"/>
+            <field name="language"/>
+            <field name="date"/>
+            <field name="description" />
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="proyectos_language_tree">
+      <field name="name">proyectos.language.tree</field>
+      <field name="model">proyectos.language</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="framework" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="proyectos_language_form">
+      <field name="name">proyectos.language.form</field>
+      <field name="model">proyectos.language</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="name"/>
+            <field name="framework"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
     <!--
     <record model="ir.actions.act_window" id="gestion_itc.action_window">
@@ -23,6 +75,18 @@
       <field name="view_mode">tree,form</field>
     </record>
     -->
+
+    <record model="ir.actions.act_window" id="proyectos_proyectos_action_window">
+      <field name="name">Proyectos</field>
+      <field name="res_model">proyectos.proyectos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="proyectos_languages_action_window">
+      <field name="name">Lenguajes</field>
+      <field name="res_model">proyectos.language</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
     <!-- server action to the one above -->
     <!--
@@ -56,5 +120,6 @@
     <menuitem name="Server to list" id="gestion_itc" parent="gestion_itc.menu_2"
               action="gestion_itc.action_server"/>
     -->
+
   </data>
 </odoo>

@@ -2,14 +2,17 @@
 
 from odoo import models, fields, api
 
-# class gestion_itc(models.Model):
-#     _name = 'gestion_itc.gestion_itc'
+class proyectos_proyectos(models.Model):
+  _name = 'proyectos.proyectos'
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
+  name = fields.Integer(string="ID proyecto")
+  language = fields.Char(string="Lenguaje")
+  date = fields.Date(string="Fecha")
+  description = fields.Char(string="Usuario que atiende el proyecto")
+
+class proyectos_language(models.Model):
+  _name = 'proyectos.language'
+
+  name = fields.Char(string="Nombre")
+  framework = fields.Char(string="Framework")
+  
