@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_gestion_itc_gestion_itc,gestion_itc.gestion_itc,model_gestion_itc_gestion_itc.group_gestor,1,1,1,1
+access_gestion_itc_proyectos_gestor,proyectos.proyectos.gestor,model_proyectos_proyectos,gestion_itc.group_gestor,1,1,1,1
+access_gestion_itc_language_gestor,proyectos.language.gestor,model_proyectos_language,gestion_itc.group_gestor,1,1,1,1
+access_gestion_itc_proyectos_operario,proyectos.proyectos.operario,model_proyectos_proyectos,gestion_itc.group_operario,1,1,0,0
+access_gestion_itc_language_operario,proyectos.language.operario,model_proyectos_language,gestion_itc.group_operario,1,1,0,0
