@@ -14,5 +14,5 @@ class proyectos_areas(models.Model):
   _name = 'proyectos.areas'
 
   name = fields.Char(string="Área")
-  proyectos = fields.One2many("proyectos.proyectos", "proyecto", string="Proyectos")
+  proyectos = fields.One2many("proyectos.proyectos", "area", string="Proyectos")
   
