@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "gestionITC",
+    'name': "Gestión ITC",
 
     'summary': """
         Módulo de gestión para el ITC""",

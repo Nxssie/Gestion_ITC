@@ -21,7 +21,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="language"/>
+          <field name="area"/>
           <field name="date"/>
           <field name="description" />
         </tree>
@@ -35,7 +35,7 @@
         <form>
           <group colspan="2" col="2">
             <field name="name"/>
-            <field name="language"/>
+            <field name="area"/>
             <field name="date"/>
             <field name="description" />
           </group>
@@ -43,25 +43,30 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="proyectos_language_tree">
-      <field name="name">proyectos.language.tree</field>
-      <field name="model">proyectos.language</field>
+    <record model="ir.ui.view" id="proyectos_areas_tree">
+      <field name="name">proyectos.areas.tree</field>
+      <field name="model">proyectos.areas</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="framework" />
         </tree>
       </field>
     </record>
 
-    <record model="ir.ui.view" id="proyectos_language_form">
-      <field name="name">proyectos.language.form</field>
-      <field name="model">proyectos.language</field>
+    <record model="ir.ui.view" id="proyectos_areas_form">
+      <field name="name">proyectos.areas.form</field>
+      <field name="model">proyectos.areas</field>
       <field name="arch" type="xml">
         <form>
           <group colspan="2" col="2">
             <field name="name"/>
-            <field name="framework"/>
+            <field name="proyectos">
+              <tree>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="description"/>
+              </tree>
+            </field>
           </group>
         </form>
       </field>
@@ -82,9 +87,9 @@
       <field name="view_mode">tree,form</field>
     </record>
     
-    <record model="ir.actions.act_window" id="proyectos_languages_action_window">
-      <field name="name">Lenguajes</field>
-      <field name="res_model">proyectos.language</field>
+    <record model="ir.actions.act_window" id="proyectos_areas_action_window">
+      <field name="name">Areas</field>
+      <field name="res_model">proyectos.areas</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -105,21 +110,17 @@
     -->
 
     <!-- Top menu item -->
-    <!--
-    <menuitem name="gestionITC" id="gestion_itc.menu_root"/>
-    -->
+    <menuitem name="Gestion ITC" id="gestion_itc_menu_root"/>
+
     <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="gestion_itc.menu_1" parent="gestion_itc.menu_root"/>
-    <menuitem name="Menu 2" id="gestion_itc.menu_2" parent="gestion_itc.menu_root"/>
-    -->
+    <menuitem name="Proyectos" id="gestion_itc_menu_1" parent="gestion_itc_menu_root"/>
+    <menuitem name="Areas" id="gestion_itc_menu_2" parent="gestion_itc_menu_root"/>
+    
     <!-- actions -->
-    <!--
-    <menuitem name="List" id="gestion_itc.menu_1_list" parent="gestion_itc.menu_1"
-              action="gestion_itc.action_window"/>
-    <menuitem name="Server to list" id="gestion_itc" parent="gestion_itc.menu_2"
-              action="gestion_itc.action_server"/>
-    -->
+    <menuitem name="Proyectos" id="gestion_itc_menu_1_list" parent="gestion_itc_menu_1"
+              action="proyectos_proyectos_action_window"/>
+    <menuitem name="Areas" id="gestion_itc_menu_2_list" parent="gestion_itc_menu_2"
+              action="proyectos_areas_action_window"/>
 
   </data>
 </odoo>
