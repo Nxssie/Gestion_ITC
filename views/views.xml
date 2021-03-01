@@ -21,6 +21,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
+          <!-- <field name="description" /> -->
           <field name="area"/>
           <field name="date"/>
           <field name="employee"/>
@@ -35,16 +36,46 @@
         <form>
           <group colspan="2" col="2">
             <field name="name"/>
+            <!-- <field name="description" /> -->
             <field name="area"/>
             <field name="date"/>
             <field name="employee"/>
           </group>
         </form>
         <div class="oe_chatter">
-          <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+          <field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
           <field name="activity_ids" widget="mail_activity"/>
           <field name="message_ids" widget="mail_thread"/>
         </div>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="proyectos_proyectos_kanban">
+      <field name="name">proyectos.proyectos.kanban</field>
+      <field name="model">proyectos.proyectos</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <!--list of field to be loaded -->
+          <field name="name" />
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_product_vignette">
+                <div class="oe_product_desc">
+                  <h4>
+                    <a type="edit">
+                      <field name="name"></field>
+                    </a>
+                  </h4>
+                  <ul>
+                    <!-- <li>Descripción: <field name="description"/></li> -->
+                    <li>Area: <field name="area"/></li>
+                    <li>Responsable: <field name="employee"/> </li>
+                  </ul>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
       </field>
     </record>
 
@@ -53,7 +84,7 @@
       <field name="model">proyectos.areas</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
+          <field name="name" />
         </tree>
       </field>
     </record>
@@ -64,14 +95,14 @@
       <field name="arch" type="xml">
         <form>
           <group colspan="2" col="2">
-            <field name="name"/>
-            <field name="proyectos">
+            <field name="name" />
+            <!-- <field name="proyectos">
               <tree>
                 <field name="name"/>
                 <field name="date"/>
                 <field name="employee"/>
               </tree>
-            </field>
+            </field> -->
           </group>
         </form>
       </field>
@@ -89,9 +120,9 @@
     <record model="ir.actions.act_window" id="proyectos_proyectos_action_window">
       <field name="name">Proyectos</field>
       <field name="res_model">proyectos.proyectos</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">kanban,tree,form</field>
     </record>
-    
+
     <record model="ir.actions.act_window" id="proyectos_areas_action_window">
       <field name="name">Areas</field>
       <field name="res_model">proyectos.areas</field>
@@ -115,17 +146,15 @@
     -->
 
     <!-- Top menu item -->
-    <menuitem name="Gestion ITC" id="gestion_itc_menu_root"/>
+    <menuitem name="Gestion ITC" id="gestion_itc_menu_root" />
 
     <!-- menu categories -->
-    <menuitem name="Proyectos" id="gestion_itc_menu_1" parent="gestion_itc_menu_root"/>
-    <menuitem name="Areas" id="gestion_itc_menu_2" parent="gestion_itc_menu_root"/>
-    
+    <menuitem name="Proyectos" id="gestion_itc_menu_1" parent="gestion_itc_menu_root" />
+    <menuitem name="Areas" id="gestion_itc_menu_2" parent="gestion_itc_menu_root" />
+
     <!-- actions -->
-    <menuitem name="Proyectos" id="gestion_itc_menu_1_list" parent="gestion_itc_menu_1"
-              action="proyectos_proyectos_action_window"/>
-    <menuitem name="Areas" id="gestion_itc_menu_2_list" parent="gestion_itc_menu_2"
-              action="proyectos_areas_action_window"/>
+    <menuitem name="Proyectos" id="gestion_itc_menu_1_list" parent="gestion_itc_menu_1" action="proyectos_proyectos_action_window" />
+    <menuitem name="Areas" id="gestion_itc_menu_2_list" parent="gestion_itc_menu_2" action="proyectos_areas_action_window" />
 
   </data>
 </odoo>
