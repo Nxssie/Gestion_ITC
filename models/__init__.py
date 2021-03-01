@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from . import models
-""" from . import auto_project """
+from . import auto_project
 
 from . import mail_message_subtype
 from . import mail_tracking_value
