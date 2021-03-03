@@ -4,7 +4,7 @@ from datetime import timedelta
 class Project(models.Model):
   _inherit = 'proyectos.proyectos'
 
-  @api.models
+  @api.model
   def create(self, values):
     res = super(Project, self).create(values)
     print(res)

@@ -9,7 +9,7 @@
         Gestión aplicada a proyectos, aplicaciones y todo lo que rodea la logística del ITC.
     """,
 
-    'author': "Joel & Carlos S.",
+    'author': "Joel L. & Carlos S.",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
